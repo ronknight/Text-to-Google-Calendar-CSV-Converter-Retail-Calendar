@@ -1,4 +1,4 @@
-# Text to Google Calendar CSV Converter
+# Text to Google Calendar CSV Converter - Retail Calendar
 
 This Python script converts a text file containing events to a Google Calendar compatible CSV format.
 

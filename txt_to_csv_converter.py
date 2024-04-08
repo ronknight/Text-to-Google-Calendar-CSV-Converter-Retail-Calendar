@@ -59,7 +59,7 @@ def txt_to_csv(input_file, output_file):
 
 if __name__ == "__main__":
     # Input and output file paths
-    input_file = "event.txt"  # Change this to the path of your input text file if it's not in the same directory
+    input_file = "events.txt"  # Change this to the path of your input text file if it's not in the same directory
     output_file = "events.csv"  # Change this to the desired path for the output CSV file
     # Convert the text file to CSV
     txt_to_csv(input_file, output_file)
