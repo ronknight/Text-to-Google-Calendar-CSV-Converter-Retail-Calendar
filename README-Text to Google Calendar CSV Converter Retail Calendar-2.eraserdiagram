@@ -1,0 +1,20 @@
+flowchart-diagram
+
+
+title Text to Google Calendar CSV Converter Retail Calendar
+
+// Define nodes and relationships
+Start [shape: oval, icon: flag] > Read events.txt [icon: file-text]
+Read events.txt > Parse event lines [icon: list]
+Parse event lines > Check date format [shape: diamond, icon: calendar]
+Check date format > Correct format [icon: check-square]: Yes
+Check date format > Format error [shape: oval, icon: alert-circle]: No
+Correct format > Convert to CSV [icon: file-text]
+Convert to CSV > Write to events.csv [icon: file-plus]
+Write to events.csv > End [shape: oval, icon: check]
+
+// Define Groups
+For each event in events.txt [icon: repeat] {
+  Parse event lines
+  Check date format
+}
