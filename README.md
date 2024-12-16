@@ -1,70 +1,122 @@
-<p><a target="_blank" href="https://app.eraser.io/workspace/anYrqassWvwDxK5i8Thm" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
+<h1 align="center">🗓️ <a href="https://github.com/ronknight/Text-to-Google-Calendar-CSV-Converter-Retail-Calendar">Text to Google Calendar CSV/ICS Converter</a></h1>
 
-<h1 align="center"><a href="https://github.com/ronknight/Text-to-Google-Calendar-CSV-Converter-Retail-Calendar">Text to Google Calendar CSV Converter - Retail Calendar</a></h1>
-<h4 align="center">This Python script converts a text file containing events to a Google Calendar compatible CSV format.</h4>
+<h4 align="center">🔧 A Python-based system that converts retail event calendars (tab-delimited text files) into Google Calendar-compatible ICS files with notifications for both major and minor events.</h4>
 
 <p align="center">
 <a href="https://twitter.com/PinoyITSolution"><img src="https://img.shields.io/twitter/follow/PinoyITSolution?style=social"></a>
 <a href="https://github.com/ronknight?tab=followers"><img src="https://img.shields.io/github/followers/ronknight?style=social"></a>
+<a href="https://github.com/ronknight/ronknight/stargazers"><img src="https://img.shields.io/github/stars/BEPb/BEPb.svg?logo=github"></a>
+<a href="https://github.com/ronknight/ronknight/network/members"><img src="https://img.shields.io/github/forks/BEPb/BEPb.svg?color=blue&logo=github"></a>
 <a href="https://youtube.com/@PinoyITSolution"><img src="https://img.shields.io/youtube/channel/subscribers/UCeoETAlg3skyMcQPqr97omg"></a>
 <a href="https://github.com/ronknight/Text-to-Google-Calendar-CSV-Converter-Retail-Calendar/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
 <a href="https://github.com/ronknight/Text-to-Google-Calendar-CSV-Converter-Retail-Calendar/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-<a href="#"><img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg"></a>
+<a href="#"><img src="https://img.shields.io/badge/Made%20with-Love-1f425f.svg"></a>
 <a href="https://github.com/ronknight"><img src="https://img.shields.io/badge/Made%20with%20%F0%9F%A4%8D%20by%20-%20Ronknight%20-%20red"></a>
 </p>
 
 <p align="center">
-  <a href="#prerequisites">Prerequisites</a> •
+  <a href="#project-overview">Project Overview</a> •
+  <a href="#files">Files</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
-  <a href="#output">Output</a> •
-  <a href="#notes">Notes</a> •
-  <a href="#diagrams">Diagrams</a> •
+  <a href="#visualization">Visualization</a> •
+  <a href="#disclaimer">Disclaimer</a>
 </p>
 
 ---
 
-## Prerequisites
-- Python 3.x
-- Input text file containing events (e.g., `events.txt` )
-## Installation
-1. Clone this repository or download the `txt_to_csv_converter.py`  file.
-2. Ensure you have Python installed on your system.
-## Usage
-1. Prepare your input text file (`events.txt` ) with events listed in the following format:
+## 📋 Project Overview
+
+This project provides tools to convert tab-delimited retail event calendar text files into **Google Calendar ICS files**. It distinguishes between **major events** and **minor events**, categorizing them and generating notifications ahead of event dates.
+
+**Features**:
+- Generates separate ICS files for **major** and **minor events**.
+- Creates **notification reminders** 1-3 months in advance for major events.
+- Handles input files in **tab-delimited text format**.
+
+---
+
+## 📁 Files
+
+| File Name                         | Description                                                                 |
+|-----------------------------------|-----------------------------------------------------------------------------|
+| `txt_to_ics_converter_internal.py` | Converts text files into **separate ICS files** for major and minor events. |
+| `txt_to_ics_converter_external.py` | Creates **ICS files with notifications** for each event.                    |
+
+---
+
+## 🛠️ Installation
+
+To set up this project locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ronknight/Text-to-Google-Calendar-CSV-Converter-Retail-Calendar.git
+   cd Text-to-Google-Calendar-CSV-Converter-Retail-Calendar
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install python-dateutil
+   ```
+
+---
+
+## 🚀 Usage
+
+### **1. Generating ICS Files for Major and Minor Events**
+
+Use the `txt_to_ics_converter_internal.py` script:
+
 ```bash
-Date,Event
-January 1,New Year’s Day
-January 1 - 31,Dry January, Ginuary, Veganuary
+python txt_to_ics_converter_internal.py
 ```
-Each event should be on a separate line, and if an event spans multiple days, use a hyphen to indicate the range.
 
-1. Run the Python script `txt_to_csv_converter.py`  by executing the following command in your terminal or command prompt:
-```bash
-python txt_to_csv_converter.py
-```
-1. Follow the prompts to provide the path for the input text file (`events.txt` ) and the desired path for the output CSV file.
-2. The script will convert the events from the text file to a CSV file compatible with Google Calendar.
-## Output
-The script generates a CSV file named `events.csv` containing the events in the following format:
+- Input file: `retail-calendar-2025-final.txt`
+- Outputs:
+  - `major_events.ics` (Major events)
+  - `minor_events.ics` (Minor events)
+
+### **2. Generating ICS Files with Notifications**
+
+Use the `txt_to_ics_converter_external.py` script:
 
 ```bash
-Subject,Start Date,Start Time,End Date,End Time,Description
-New Year’s Day,2024-01-01,,2024-01-01,,""
-Dry January,2024-01-01,,2024-01-31,,"Ginuary, Veganuary"
+python txt_to_ics_converter_external.py
 ```
-## Notes
-- Ensure that the events in the input text file are formatted correctly to ensure proper conversion.
-- Special cases such as date ranges or events spanning multiple days are handled appropriately.
-- The script does not include event descriptions by default. You can modify the script to add descriptions if needed.
-This `README.md` file provides detailed instructions on how to use the script, prerequisites, and explanations of the output format. Additionally, it includes the full code of the Python script for reference. You can include this file in your project repository to guide users on how to use the script.
 
+- Input file: `retail-calendar-2025-final.txt`
+- Output:
+  - `events_with_notifications.ics` (ICS file with notifications for events)
 
-<!-- eraser-additional-content -->
-## Diagrams
-<!-- eraser-additional-files -->
-<a href="/README-Text to Google Calendar CSV Converter Architecture-1.eraserdiagram" data-element-id="iItwQoNKVJlFR_1o7Nad9"><img src="/.eraser/anYrqassWvwDxK5i8Thm___3Jivg2tjMecMlrHwbIVIBR8f7U03___---diagram----8d29172fed82262b0b3702582912298b-Text-to-Google-Calendar-CSV-Converter-Architecture.png" alt="" data-element-id="iItwQoNKVJlFR_1o7Nad9" /></a>
-<a href="/README-Text to Google Calendar CSV Converter Retail Calendar-2.eraserdiagram" data-element-id="QYRYHAQHyjTnHqE6RZsnl"><img src="/.eraser/anYrqassWvwDxK5i8Thm___3Jivg2tjMecMlrHwbIVIBR8f7U03___---diagram----b6bfff32a7a3405c1d75cbd371cb057c-Text-to-Google-Calendar-CSV-Converter-Retail-Calendar.png" alt="" data-element-id="QYRYHAQHyjTnHqE6RZsnl" /></a>
-<!-- end-eraser-additional-files -->
-<!-- end-eraser-additional-content -->
-<!--- Eraser file: https://app.eraser.io/workspace/anYrqassWvwDxK5i8Thm --->
+---
+
+## 📊 Visualization
+
+### Workflow for `txt_to_ics_converter_internal.py`:
+
+```mermaid
+graph TD
+A[Input: Retail Calendar Text File] --> B[Read Events and Categorize]
+B -->|Major Events| C[Generate Major ICS File]
+B -->|Minor Events| D[Generate Minor ICS File]
+C --> E[Save as major_events.ics]
+D --> F[Save as minor_events.ics]
+```
+
+### Workflow for `txt_to_ics_converter_external.py`:
+
+```mermaid
+graph TD
+A[Input: Retail Calendar Text File] --> B[Parse Event and Notification Dates]
+B --> C[Generate Main Event in ICS Format]
+B --> D[Generate Notification Event in ICS Format]
+C --> E[Save to events_with_notifications.ics]
+D --> E
+```
+
+---
+
+## ⚠️ Disclaimer
+
+This project processes date-sensitive retail calendars and generates notification files. Ensure that the input text files are correctly formatted. Always validate generated ICS files before importing them into calendar applications.
